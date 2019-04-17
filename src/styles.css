@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC');
+
+/* font-family: 'Noto Sans SC', sans-serif; */
+html, body {
+  margin: 0;
+
+}
+* {
+  font-family: 'Noto Sans SC', sans-serif;
+}
+body {
+  background-color: #f9f9f9 !important;
+  height: 100%;
+}
+.space {
+  width: 100%;
+  display: block;
+  height: 20px;
+}
+.two-space {
+  width: 100%;
+  display: block;
+  height: 40px;
+}
+/* .text-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+} */
+mat-form-field {
+  width: 100%;
+  margin: auto;
+}
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}
+mat-sidenav {
+  width: 300px;
+}
+.sidenav-caption {
+  display: inline-block;
+  padding-left: 7px;
+}
+section {
+  margin-left: auto;
+  margin-right: auto;
+}
+.sidenav-caption {
+  display: inline-block;
+  padding-left: 7px;
+}
+.mat-drawer-content {
+  display: initial !important;
+}
+
+mat-card {
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12) !important;
+}
+.red {
+  background-color: #e53935;
+  color: #fff;
+}
+.purple {
+  background-color: #8e24aa;
+  color: #fff;
+}
+.blue {
+  background-color: #1e88e5;
+  color: #fff;
+}
+.teal {
+  background-color: #1de9b6;
+  color: #fff;
+}
+.lime {
+  background-color: #c6ff00;
+  color: #fff;
+}
+.green {
+  background-color: #76ff03;
+  color: #fff;
+}
+.orange {
+  background-color: #fb8c00;
+  color: #fff;
+}
+
+/* 
+@media only screen and(max-width: 600px) {
+  html {
+    height: 100%;
+  }
+} */

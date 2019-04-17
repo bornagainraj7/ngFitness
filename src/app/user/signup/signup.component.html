@@ -1,0 +1,40 @@
+<div class="two-space"></div>
+<section class="signup-form">
+  <div class="columns">
+    <div class="column col-mx-auto col-sm-12 col-md-8 col-lg-6 col-xl-5 col-4">
+      <mat-card>
+        <mat-card-title class="text-center">
+          <h1>SignUp</h1>
+        </mat-card-title>
+        <div class="space"></div>
+        <mat-card-content>
+          <form #signupForm="ngForm" (submit)="onFormSubmit(signupForm)" fxLayout="column" fxLayoutAlign="center center">
+            <mat-form-field appearance="outline">
+              <mat-label>Your Email</mat-label>
+              <input matInput type="email" placeholder="Email" name="email" ngModel #email="ngModel" email required>
+              <mat-error *ngIf="email.hasError('required')">Email is required.</mat-error>
+              <mat-error *ngIf="!email.hasError('required')">Email is invalid</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" hintLabel="Should be atleast 6 characters long.">
+              <mat-label>Your Password</mat-label>
+              <input matInput type="password" placeholder="Password" name="password" ngModel #password required minlength="6">
+              <mat-hint align="end"> {{password.value?.length}}/6</mat-hint>
+              <mat-error>Password has to be 6 characters long</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Your Birthday</mat-label>
+              <input matInput placeholder="Birthday" [matDatepicker]="picker" [max]="maxDate" ngModel name="birthday"
+                required>
+              <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-checkbox ngModel name="agree" color="primary" required>I agree to Terms and Conditions</mat-checkbox>
+            <button *ngIf="!isLoading" mat-raised-button type="submit" color="primary" [disabled]="signupForm.invalid">Submit</button>
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
+          </form>
+          <div class="space"></div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

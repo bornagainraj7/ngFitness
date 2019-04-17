@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <div class="show-sm">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div>NgFitness</div>
+  <div class="spacer"></div>
+  <nav class="hide-sm">
+    <ul>
+      <li *ngIf="isAuth$ | async">
+        <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      </li>
+      <li *ngIf="isAuth$ | async">
+        <a mat-button routerLink="/training" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Training</a>
+      </li>
+      <li *ngIf="!(isAuth$ | async)">
+        <a mat-button routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Login</a>
+      </li>
+      <li *ngIf="!(isAuth$ | async)">
+        <a mat-button routerLink="/signup" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">SignUp</a>
+      </li>
+      <li *ngIf="isAuth$ | async">
+        <a mat-button (click)="onLogout()" >Logout</a>
+      </li>
+    </ul>
+  </nav>
+</mat-toolbar>

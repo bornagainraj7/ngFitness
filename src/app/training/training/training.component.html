@@ -1,0 +1,14 @@
+<div class="container">
+  <mat-tab-group class="columns" *ngIf="!(ongoingTraining$ | async)">
+    <mat-tab label="New Exercise" class="column col-6 col-mx-auto">
+      <app-new-training ></app-new-training>
+    </mat-tab>
+    <mat-tab label="Past Exercises" class="column col-6 col-mx-auto">
+      <app-past-trainings></app-past-trainings>
+    </mat-tab>
+  </mat-tab-group>
+  <div class=columns>
+    <app-current-training *ngIf="(ongoingTraining$ | async)" class="column col-12 col-mx-auto"></app-current-training>
+  </div>
+</div>
+

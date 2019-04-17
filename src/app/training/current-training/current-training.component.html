@@ -1,0 +1,11 @@
+<div class="container">
+  <section class="columns">
+    <div class="two-space"></div>
+    <div class="column col-3 col-mx-auto" fxLayout="column" fxLayoutAlign="center center">
+      <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
+      <h2>{{progress}}%</h2>
+      <p>No Pain, No Gain</p>
+      <button mat-raised-button color="warn" (click)="onStop()">Stop</button>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="two-space"></div>
+  <section>
+    <div class="columns">
+      <div class="column col-mx-auto col-sm-12 col-md-8 col-lg-6 col-xl-5 col-4">
+        <mat-card class="text-center">
+          <form *ngIf="!(isLoading$ | async)" (submit)="onStartTraining(exForm)" #exForm="ngForm">
+            <mat-card-title>
+              Start new workout
+            </mat-card-title>
+            <mat-card-content>
+              <mat-form-field *ngIf="exercises$ | async" appearance="outline">
+                <mat-label>Exercises</mat-label>
+                <mat-select ngModel name="exercise" required>
+                  <mat-option  *ngFor="let exercise of exercises$ | async" [value]="exercise.id">{{ exercise.name }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+              <button *ngIf="exercises$ | async" mat-raised-button type="submit" [disabled]="exForm.invalid" class="teal">Start
+                <mat-icon matSuffix>navigate_next</mat-icon>
+              </button>
+              <button *ngIf="!(exercises$ | async)" mat-raised-button type="button" (click)="fetchExercisesAgain()" class="teal">Fetch Again</button>
+            </mat-card-actions>
+          </form>
+          <div class="columns">
+            <mat-spinner class="column col-mx-auto col-4" *ngIf="isLoading$ | async"></mat-spinner>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+  <div class="two-space"></div>
+</div>
